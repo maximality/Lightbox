@@ -39,10 +39,10 @@ class PageView: UIScrollView {
     button.addTarget(self, action: #selector(playButtonTouched(_:)), for: .touchUpInside)
     button.tintColor = .white
 
-    button.layer.shadowOffset = CGSize(width: 1, height: 1)
-    button.layer.shadowColor = UIColor.gray.cgColor
-    button.layer.masksToBounds = false
-    button.layer.shadowOpacity = 0.8
+//    button.layer.shadowOffset = CGSize(width: 1, height: 1)
+//    button.layer.shadowColor = UIColor.gray.cgColor
+//    button.layer.masksToBounds = false
+//    button.layer.shadowOpacity = 0.8
 
     return button
   }()
