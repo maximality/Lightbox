@@ -493,17 +493,12 @@ extension LightboxController: HeaderViewDelegate {
         }
         let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = view ?? UIView()
-
-        activityViewController.excludedActivityTypes = [
-            UIActivity.ActivityType.postToWeibo,
-            UIActivity.ActivityType.print,
-            UIActivity.ActivityType.assignToContact,
-            UIActivity.ActivityType.saveToCameraRoll,
-            UIActivity.ActivityType.addToReadingList,
-            UIActivity.ActivityType.postToFlickr,
-            UIActivity.ActivityType.postToVimeo,
-            UIActivity.ActivityType.postToTencentWeibo
-        ]
+        activityViewController.completionWithItemsHandler = { _, bool, _, _ in
+            if bool {
+                print("It is done!")
+            }
+        }
+        activityViewController.popoverPresentationController?.permittedArrowDirections = .any
         present(activityViewController, animated: true, completion: nil)
     }
 }
