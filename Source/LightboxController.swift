@@ -200,6 +200,11 @@ open class LightboxController: UIViewController {
         goTo(initialPage, animated: false)
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
