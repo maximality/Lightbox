@@ -69,7 +69,6 @@ open class LightboxController: UIViewController {
     open fileprivate(set) lazy var headerView: HeaderView = { [unowned self] in
         let view = HeaderView()
         view.delegate = self
-        
         return view
     }()
     
@@ -130,6 +129,12 @@ open class LightboxController: UIViewController {
                 effectView.removeFromSuperview()
                 backgroundView.removeFromSuperview()
             }
+        }
+    }
+    
+    open var canShareAndSave: Bool = true {
+        didSet {
+            headerView.canShareAndSave = canShareAndSave
         }
     }
     
@@ -504,6 +509,7 @@ extension LightboxController: HeaderViewDelegate {
             }
         }
         activityViewController.popoverPresentationController?.permittedArrowDirections = .any
+        
         present(activityViewController, animated: true, completion: nil)
     }
 }

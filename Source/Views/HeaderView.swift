@@ -75,6 +75,12 @@ open class HeaderView: UIView {
     
     weak var delegate: HeaderViewDelegate?
     
+    open var canShareAndSave: Bool = true {
+        didSet {
+            shareButton.isHidden = !canShareAndSave
+        }
+    }
+    
     // MARK: - Initializers
     
     public init() {
